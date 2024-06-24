@@ -27,12 +27,12 @@ const Navbar = () => {
 
                     <ul className='md:flex space-x-12 hidden'>
                         {
-                            navItems.map(({link, path}) => <li><a key={link} href={path} className='block hover:text-secondary'>{link}</a></li>)
+                            navItems.map(({link, path}) => <li className='leading-10 border-b-4 border-solid border-transparent transition-all duration-400 hover:border-primary hover: px-2'><a key={link} href={path} className='block hover:text-secondary'>{link}</a></li>)
                         }
                     </ul>
                 </div>
                 <div className='space-x-12 hidden md:flex items-center'>
-                    <button className=' hidden md:flex items-center bg-secondary py-2 px-4 transition-all duration-300 rounded text-white hover:bg-indigo-600'>
+                    <button className=' hidden md:flex items-center bg-secondary py-2 px-4 transition-all duration-300 rounded text-white hover:bg-indigo-600 shadow-xl'>
                         <IoLogoWhatsapp className='mr-2 text-white '/>
                         Contatar
                     </button>
