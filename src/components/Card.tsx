@@ -6,7 +6,7 @@ const Card = ({bgColor, icon, text, iconColor}) => {
             <div className={`text-${iconColor} text-8xl mx-auto`}>
                 { icon }
             </div>
-            <p className="mx-auto w-5 md:w-full leading-8 md:col-span-5 text-xl text-center font-normal">{text}</p>
+            <p className="mx-auto w-50 md:w-full leading-8 md:col-span-5 text-xl text-center font-normal">{text}</p>
         </div>
     )
 }

@@ -1,37 +1,56 @@
-import { GiEvilLove } from "react-icons/gi";
-import Card from "./Card";
+import logo from '../assets/logo-sm.png'
+import { IoLogoWhatsapp } from "react-icons/io";
+import { PiInstagramLogoFill } from "react-icons/pi";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
-
-const Footer = () => {
-    const cards = [
-        {'icon': <GiEvilLove  />, 'text': 'Saiba as intenções, os sentimentos e o futuro da sua vida amorosa, profissional, social, saúde ou algo que queira saber DA SUA VIDA.', 'bg':'secondary', 'color': 'indigo-500'},
-        {'icon': <GiEvilLove  />, 'text': 'Consultas 100% sigilosas, realizadas por mensagem de texto (chat) ou email.', 'bg':'secondary', 'color': 'indigo-500'},
-        {'icon': <GiEvilLove  />, 'text': 'Coloque um ponto final nas suas dúvidas, conquiste seus objetivos!', 'bg':'secondary', 'color': 'indigo-500'},
-    ]
-    return(
+const Footer = ({ navItems }) => {
+    return (
         <>
-        <section className="md:px-12 p-4 max-w-screen-2xl mx-auto mt-20">
-            <div className="text-center">
-                <h4 className="text-5xl font-extrabold text-primary">Vida Tarot 
-                </h4>
-                <p className="text-secondary text-2xl font-semibold leading-10">Tarot online responsável, ético e confiável.</p>
+        <footer className="bg-secondary text-center">
+        <div className='mx-auto flex flex-col md:flex-row md:justify-evenly items-center md:items-top py-10 w-full md:h-[40vh] overflow-clip'>
+            <img src={logo} alt="" className='w-50 md:w-60 md:h-60 mb-10 md:my-auto' />
+
+            {navItems.length > 0 ? 
+                <div className="text-primary flex flex-col gap-4 md:px-10">
+                    <h6 className='text-xl md:text-left font-bold text-black'>Seções</h6>
+                    <ul className="list-none text-primary justify-between flex md:flex-col gap-6 md:gap-0 mb-10 md:mb-0">
+                        {
+                            navItems.map(({link, path}) => <li className='transition-all duration-400 hover:text-white text-left'><a key={link} href={path} className='hover:text-white font-medium text-xl'>{link}</a></li>)
+                        }
+                    </ul>
+                </div>
+                : null
+            }
+            <div className="flex flex-col gap-4">
+                <h6 className='text-xl md:text-left font-bold'>Redes Sociais</h6>
+                <ul className="grid grid-cols-2 md:flex md:flex-col list-none text-3xl text-primary justify-between gap-4 md:gap-2">
+                    <li className='flex items-center gap-4'>
+                        <PiInstagramLogoFill />
+                        <p className='text-xl font-medium text-primary hover:text-white duration-300 transition-colors'><a target='_blank' href="https://www.instagram.com/osinalamp/">@osinalamp</a> / <a target='_blank' href="https://www.instagram.com/osinalamp/">@osinalamp</a></p>
+                    </li>
+                    <li className='flex text-primary items-center gap-4'>
+                        <IoLogoWhatsapp className=''/>
+                        <p className='text-xl font-medium text-primary hover:text-white duration-300 transition-colors'><a target='_blank' href="https://wa.me/11982007294">(11) 9 8200-7294</a></p>
+                    </li>
+                    <li className='flex items-center gap-4'>
+                        <FaFacebookSquare />
+                        <p className='text-xl font-medium text-primary hover:text-white duration-300 transition-colors'><a target='_blank' href="#">Aleksandra Pyramo</a></p>
+                    </li>
+                    <li className='flex  items-center gap-4'>
+                        <MdEmail />
+                        <p className='text-xl font-medium text-primary hover:text-white duration-300 transition-colors'><a target='_blank' mailto="osinalamp@gmail.com" href="mailto:osinalamp@gmail.com">osinalamp@gmail.com</a></p>
+                    </li>
+                </ul>
             </div>
+        </div>
         
-        {/* card area */}
-            <div className="flex flex-col md:max-w-[70vw] mx-auto gap-4 my-8">
-                {/* single card */}
-                {/* <div className="flex flex-col border-secondary border-2 rounded-2xl bg-secondary bg-opacity-50 p-4 my-8 md:grid grid-cols-6 items-center gap-8 md:h-32">
-                    <div className=" text-indigo-500 text-8xl mx-auto">
-                        <GiEvilLove  />
-                    </div>
-                    <p className="mx-auto w-52 md:w-full leading-8 md:col-span-5 text-xl text-center font-normal">Saiba as intenções, os sentimentos e o futuro da sua vida amorosa, profissional, social, saúde ou algo que queira saber <span className="font-semibold">da sua vida.</span></p>
-                </div> */}
-                {cards.map(({id, icon, text, bg, color }) =>{return (<Card key={id} text={text} bgColor={bg} icon={icon} iconColor={color} />)})}
-                
-{/* <Card bg={bg} icon={ico} text={text }/> */}
-            </div>
-        </section>
-</>
+        <div className='flex justify-center items-center text-2xl md:text-xl text-black'>
+            <p className='inline leading-10'>Desenvolvido por <a target='_blank' href="https://github.com/wessvs" className='font-bold hover:text-white duration-300 transition-all'>@wessvs</a></p><FaGithub className='ml-2 inline'/>
+        </div>
+        </footer>
+        </>
     )
 }
 

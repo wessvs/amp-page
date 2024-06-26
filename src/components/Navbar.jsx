@@ -3,19 +3,13 @@ import logo from '../assets/logo-sm.png'
 import { IoLogoWhatsapp } from "react-icons/io";
 import { ImMenu3, ImMenu4 } from "react-icons/im";
 
-const Navbar = () => {
+const Navbar = ({navItems}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    const navItems = [
-        {link: "Artista", path: "artista"},
-        {link: "Auto-cuidado", path: "auto-cuidado"},
-        {link: "Tarot", path: "tarot"},
-        {link: "Contato", path: "contato"},
-    ]
     return (
         <>
         <nav className='bg-white md:px-14 p-4 max-w-screen-2xl mx-auto text-primary fixed top-0 right-0 left-0 shadow-b-2xl'>
@@ -31,13 +25,15 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <div className='space-x-12 hidden md:flex items-center'>
-                    <button className=' hidden md:flex items-center bg-secondary py-2 px-4 transition-all duration-300 rounded text-white hover:bg-indigo-600 shadow-xl'>
-                        <IoLogoWhatsapp className='mr-2 text-white '/>
-                        Contatar
-                    </button>
+                <div className={`space-x-12 ${navItems.length > 0 ? 'hidden w-fit':''} flex items-center`}>
+                    <a target='_blank' href="https://wa.me/11982007294">
+                        <button className={`${navItems.length > 0 ? 'hidden':''} flex items-center bg-secondary py-2 px-4 transition-all duration-300 rounded text-white hover:bg-indigo-600 shadow-xl`} target='_blank' onClick="https://wa.me/11982007294">
+                            <IoLogoWhatsapp className='mr-2 text-white '/>
+                            Contatar
+                        </button>
+                    </a>
                 </div>
-                <div className="md:hidden">
+                <div className={`md:hidden ${navItems.length == 0 ? 'hidden':''}`}>
                         <button onClick={toggleMenu} 
                         className='text-white focus:outline-none focus:text-gray-300'>
                             {
