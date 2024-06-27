@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Section from './components/Section'
 
 function App() {
+  // Liberar quando criar demais páginas
   const navItems = [
     // {link: "Artista", path: "artista"},
     // {link: "Auto-cuidado", path: "auto-cuidado"},
