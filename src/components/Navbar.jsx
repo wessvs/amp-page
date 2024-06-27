@@ -26,7 +26,7 @@ const Navbar = ({navItems}) => {
                     </ul>
                 </div>
                 <div className={`space-x-12 ${navItems.length > 0 ? 'hidden w-fit':''} flex items-center`}>
-                    <a target='_blank' href="https://wa.me/11982007294">
+                    <a target='_blank' href="https://wa.me/1182007294">
                         <button className={`${navItems.length > 0 ? 'hidden':''} flex items-center bg-secondary py-2 px-4 transition-all duration-300 rounded text-white hover:bg-indigo-600 shadow-xl`} target='_blank' onClick="https://wa.me/11982007294">
                             <IoLogoWhatsapp className='mr-2 text-white '/>
                             Contatar
